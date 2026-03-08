@@ -39,6 +39,8 @@ app.post('/auth/token', generateToken);
 
 // User routes
 app.use('/api', require('./routes/userRoutes'));
+// Vehicle routes
+app.use('/api', require('./routes/vehicleRoutes'));
 
 app.listen(PORT, () =>
   console.log(`UTN API service listening on port ${PORT}!`)
