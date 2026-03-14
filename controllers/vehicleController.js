@@ -33,7 +33,12 @@ const vehicleGet = async (req, res) => {
         return res.status(404); // Not Found
       }
 
-      return res.status(200).json(vehicle);
+      const owner = await User.findById(vehicle.id_user).select("name last_name email id_number");
+
+      return res.status(200).json({
+        vehicle: vehicle,
+        owner: owner
+      });
     }
 
     // 2. Buscar todos o filtrar
