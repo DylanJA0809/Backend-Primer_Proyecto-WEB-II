@@ -153,14 +153,14 @@ const vehicleDelete = async (req, res) => {
     const deletedVehicle = await Vehicle.findByIdAndDelete(req.query.id);
 
     if (!deletedVehicle) {
-      return res.status(404); // Not Found
+      return res.status(404).end(); // Not Found
     }
 
-    res.status(200);
+    return res.status(200).end();
 
   } catch (error) {
     console.error(error);
-    res.status(500); // Internal Server Error
+    return res.status(500).end(); // Internal Server Error
   }
 };
 
