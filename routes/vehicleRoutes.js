@@ -5,8 +5,10 @@ const { vehiclePost, vehicleGet, vehiclePut, vehicleDelete } = require('../contr
 
 const { authenticateToken } = require('../controllers/authJWT');
 
+const upload = require('../middlewares/uploadImage');
+
 // POST - Create vehicle
-router.post('/vehicle', authenticateToken, vehiclePost);
+router.post('/vehicle', authenticateToken, upload.single('image'), vehiclePost);
 
 // GET - Get all vehicles, get by id, or filter vehicles
 router.get('/vehicle', vehicleGet);
