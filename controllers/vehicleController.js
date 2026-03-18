@@ -2,13 +2,19 @@ const Vehicle = require('../models/vehicle');
 
 const vehiclePost = async (req, res) => {
   try {
+    let imagePath = null;
+
+    if (req.file) {
+      imagePath = req.file.path; 
+    }
+
     let vehicle = new Vehicle({
         brand: req.body.brand,
         model: req.body.model,
         description: req.body.description,
         year: req.body.year,
         price: req.body.price,
-        image_path: req.body.image_path,
+        image_path: imagePath,
         id_user: req.body.id_user,
         status: req.body.status
     });
