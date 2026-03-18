@@ -9,7 +9,7 @@ const answerSchema = new mongoose.Schema({
   id_user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "user"
+    ref: "User"
   },
   message: {
     type: String,
