@@ -42,6 +42,9 @@ app.use('/api', require('./routes/userRoutes'));
 // Vehicle routes
 app.use('/api', require('./routes/vehicleRoutes'));
 
+app.use("/api", require("./routes/questionRoutes"));
+app.use("/api", require("./routes/answerRoutes"));
+
 app.use("/uploads", express.static("uploads"));
 
 app.listen(PORT, () =>
