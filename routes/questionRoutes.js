@@ -4,9 +4,7 @@ const router = express.Router();
 const { questionPost, questionGet } = require("../controllers/questionController");
 const { authenticateToken } = require("../controllers/authJWT");
 
-
 router.post("/question", authenticateToken, questionPost);
-
-router.get("/question", questionGet);
+router.get("/question", authenticateToken, questionGet);
 
 module.exports = router;
