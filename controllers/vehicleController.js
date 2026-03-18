@@ -1,4 +1,5 @@
 const Vehicle = require('../models/vehicle');
+const User = require('../models/user');
 
 const vehiclePost = async (req, res) => {
   try {
